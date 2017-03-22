@@ -197,12 +197,12 @@ public:
 
 	// Functions that return iterators
 	iterator begin() {
-		// Replace the line(s) below with your code.
+		// Replace the line(s) below with your code. DONE
 		return iterator(this, 0);
 	}
 	iterator end() {
 		// Replace the line(s) below with your code.
-		return iterator(this, 0);
+		return iterator(this, ring_size);
 	}
 
 	// Miscellaneous functions
