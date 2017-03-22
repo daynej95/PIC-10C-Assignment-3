@@ -176,9 +176,22 @@ public:
 
 	// Mutators
 	void push_back(const ItemType& value){
+		buffer[end_index] = value;		
+		if (ring_size < MAX_SIZE) ++ring_size;
+		else{
+			++begin_index;
+			if (begin_index == MAX_SIZE) begin_index == 0;
+		}
 		return;
 	}
 	void pop_front(){
+		if (ring_size == 0){
+			std::cout << "Warning: Empty ring!\n";
+			throw;
+		}
+		--ring_size;
+		++begin_index;
+		if (begin_index == MAX_SIZE) begin_index == 0;
 		return;
 	}
 
