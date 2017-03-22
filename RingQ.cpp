@@ -137,8 +137,9 @@ private:
 	// A helper function that computes the index of 'the end'
 	// of the RingQueue
 	int end_index() const {
-		// Replace the line(s) below with your code.
-		return begin_index;
+		// Replace the line(s) below with your code. DONE
+		int index = (begin_index + ring_size) % MAX_SIZE;
+		return index;
 	}
 
 
