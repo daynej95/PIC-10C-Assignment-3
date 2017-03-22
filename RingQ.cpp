@@ -176,7 +176,7 @@ public:
 
 	// Mutators
 	void push_back(const ItemType& value){
-		buffer[end_index] = value;		
+		buffer[end_index()] = value;		
 		if (ring_size < MAX_SIZE) ++ring_size;
 		else{
 			++begin_index;
@@ -208,7 +208,7 @@ public:
 	// Miscellaneous functions
 	size_t size() const {
 		// Replace the line(s) below with your code.
-		return 0;
+		return ring_size;
 	}
 
 	// Debugging functions
@@ -248,13 +248,13 @@ int main(){
 	// implementation of RingQueue<ItemType,int>::end(). 
 	// If the implementation is not correct, it might result in 
 	// an infinite loop.
-	/**
+	
 	std::cout << "Queue via iterators: \n";
 	for ( auto it = rq.begin() ; it != rq.end() ; ++it ) {
 	std::cout << "Value: " << *it << ", address: " << &(*it) << '\n';
 	}
 	std::cout << '\n';
-	*/
+	
 
 
 
