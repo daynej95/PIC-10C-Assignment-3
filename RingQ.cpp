@@ -59,28 +59,34 @@ public:
 
 	public:
 		reference operator*() {
-			// Replace the line(s) below with your code.
-			return parent->buffer[0];
+			// Replace the line(s) below with your code. DONE
+			int index = (parent->begin_index + offset) % MAX_SIZE;
+			return parent->buffer[index];
 		}
 
 		iterator& operator++(){
-			// Replace the line(s) below with your code.
-			return *this;
+			// Replace the line(s) below with your code. DONE
+			iterator copy = *this;
+			++offset;
+			if (offset == MAX_SIZE) offset = 0;
+			return copy;
 		}
 
 		iterator operator++(int unused){
-			// Replace the line(s) below with your code.
+			// Replace the line(s) below with your code. DONE
+			++offset;
+			if (offset == MAX_SIZE) offset = 0;
 			return *this;
 		}
 
 		bool operator==(const iterator& rhs) const {
-			// Replace the line(s) below with your code.
-			return true;
+			// Replace the line(s) below with your code. DONE
+			return parent == rhs.parent && offset == rhs.offset;
 		}
 
 		bool operator!=(const iterator& rhs) const {
-			// Replace the line(s) below with your code.
-			return true;
+			// Replace the line(s) below with your code. DONE
+			return parent != rhs.parent || offset != rhs.offset;
 		}
 
 	};
